@@ -1,0 +1,11 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div id="user_nav">
+      <% if user_signed_in? %>
+        Signed in as <%= current_user.email %>
+        <%= link_to "Deconnexion", destroy_user_session_path, method: :delete %>
+        <%= link_to "Mon profil", user_path(current_user) %>
+      <% else %>
+        <%= link_to "S'incrire", new_user_registration_path %> or <%= link_to "Se connecter", new_user_session_path %>
+      <% end %>
+    </div>
+</header>
