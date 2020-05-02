@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# ignore spring files
+/spring/*pid
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
