@@ -8,6 +8,9 @@ class User < ApplicationRecord
   						  join_table: :friendships,
   						  foreign_key: :user_id,
   						  association_foreign_key: :friend_user_id
+  has_many :friend_requests, foreign_key: :from_user_id
+  has_many :received_requests, through: :friend_requests, source: :to_user
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
