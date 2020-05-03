@@ -1,7 +1,9 @@
 mathias:
   name: Mathias
   email: mathias@ask.fr
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 
 andrea:
   name: Andrea
   email: andrea@ask.fr
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
