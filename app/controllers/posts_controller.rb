@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_action :require_log_in
+
 	def create
 		@post = current_user.posts.build(post_params)
 		if @post.save

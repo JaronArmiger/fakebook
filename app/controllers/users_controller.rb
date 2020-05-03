@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+    before_action :require_log_in
+    
 	def index
 	end
 
