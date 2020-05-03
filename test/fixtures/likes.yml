@@ -4,6 +4,3 @@ one:
   liker_id: 1
   liked_post_id: 1
 
-two:
-  liker_id: 1
-  liked_post_id: 1
