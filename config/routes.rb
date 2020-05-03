@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts
   resources :comments
+  get '/home', to: 'static_pages#home'
   
   root 'static_pages#home'
   
