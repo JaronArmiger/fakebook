@@ -1,0 +1,18 @@
+<li>
+	<span>
+		<%= link_to post.user.name, post.user %>
+	</span>
+	<br>
+	<span><%= post.content %></span>
+	<span>
+		Posted <%= time_ago_in_words(post.created_at) %> ago
+	</span>
+	<p>
+		<% @count = post.likers.count %>
+		<%= pluralize(@count, "person") %>
+		<%= @count == 1 ? "likes" : "like" %>
+		this post
+		<b><%= link_to "like", '#' %></b>
+	</p>
+
+</li>

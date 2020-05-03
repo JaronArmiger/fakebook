@@ -15,4 +15,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def feed
+    user_ids = friend_ids << id
+    Post.where("user_id IN (#{user_ids.join(', ')})").order(created_at: :desc)
+  end
 end
