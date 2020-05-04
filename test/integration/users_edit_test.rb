@@ -8,21 +8,15 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   end
 
   test "unsuccessful edit" do
-  	get edit_user_path @user
-  	assert_template 'users/edit'
-  	patch user_path, params: { user: { name: "", 
-  									   email: "", 
-  									   password: "merde" } }
-  	assert_template 'users/edit'
-  	assert_select 'div.alert', text: "the form contains 3 errors"
+  	get edit_user_registration_path @user
+  	put users_path, params: { user: { name: "", 
+  									   email: ""} }
+  	assert_select 'div#error_explanation'
   end
 
   test "successful edit" do
-  	get edit_user_path @user
-  	assert_template 'users/edit'
-  	patch user_path, params: { user: { name: "Arlette", 
-  									   email: "arlette@ask.fr", 
-  									   password: "cettemerde" } }
-  	assert_template 'users/edit'
+  	get edit_user_registration_path @user
+  	put users_path, params: { user: { name: "Arlette", 
+  									   email: "arlette@ask.fr" } }
   end
 end
