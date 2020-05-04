@@ -13,9 +13,9 @@
 		<%= @count == 1 ? "likes" : "like" %>
 		this post
 		<% if post.likers.include?(current_user) %>
-		  <b><%= link_to "unlike", '#' %></b>
+		  <b><%= render partial: 'posts/unlike', locals: { post: post} %></b>
 		<% else %>
-		  <b><%= link_to "like", '#' %></b>
+		  <b><%= render partial: 'posts/like', locals: { post: post} %></b>
 		<% end %>
 	</p>
 

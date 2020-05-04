@@ -20,4 +20,8 @@ class User < ApplicationRecord
     user_ids = friend_ids << id
     Post.where("user_id IN (#{user_ids.join(', ')})").order(created_at: :desc)
   end
+
+  def like(post)
+    self.likes.create!(liked_post_id: post.id)
+  end
 end

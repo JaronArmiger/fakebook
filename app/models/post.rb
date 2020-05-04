@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   has_many :likers, through: :likes
 
   validates :content, presence: true, length: { maximum: 1000 }
+
 end
