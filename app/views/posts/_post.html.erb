@@ -17,6 +17,12 @@
 		<% else %>
 		  <b><%= render partial: 'posts/like', locals: { post: post} %></b>
 		<% end %>
+		<% if post.comments.any? %>
+		  <ul>
+		    <%= render post.comments %>
+		  </ul>
+		<% end %>
+		<%= render partial: 'comments/comment_form', locals: { post: post } %>
 	</p>
 
 </li>

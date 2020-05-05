@@ -1,0 +1,9 @@
+<li>
+  <% @user = comment.user %>
+  <%= link_to @user.name, user_path(@user) %>
+  <%= comment.content %>
+  <% if @user == current_user %>
+    <%= link_to 'editer', '#' %>
+    <%= link_to 'delete', '#' %>
+  <% end %>
+</li>
