@@ -3,7 +3,6 @@
   <%= link_to @user.name, user_path(@user) %>
   <%= comment.content %>
   <% if @user == current_user %>
-    <%= link_to 'editer', '#' %>
-    <%= link_to 'delete', '#' %>
+    <%= link_to 'delete', comment_path(comment), method: :delete %>
   <% end %>
 </li>
