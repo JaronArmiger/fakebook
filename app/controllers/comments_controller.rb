@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
 	def destroy
 		@comment.destroy
 		flash[:success] = "commentaire effacer"
-		redirect_to request.referrer || root_url
+		redirect_to request.referrer || home_path
 	end
 
 	private
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
 		def correct_user
 			@comment = current_user.comments.find_by(id: params[:id])
 			if @comment.nil?
-				redirect_to request.referrer || root_url
+				redirect_to request.referrer || home_path
 			end
 		end
 end
