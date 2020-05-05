@@ -1,3 +1,21 @@
 @import "bootstrap-sprockets";
-@import "bootstrap"
+@import "bootstrap";
 
+.friends {
+	float: left;
+	margin-left: 40px;
+}
+
+.posts {
+	float: left;
+
+}
+
+.banner {
+	margin-bottom: 50px;
+	margin-left: 50px;
+}
+
+.post_form {
+	margin-bottom: 40px;
+}

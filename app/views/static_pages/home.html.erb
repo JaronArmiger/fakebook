@@ -1,4 +1,11 @@
-<h1>sup bitches</h1>
-<%= render 'shared/post_form' %>
+<h1>L'accueil</h1>
 
-<%= render @feed_items %>
+
+<div class="container">
+  <div class="post_form">
+    <%= render 'shared/post_form' %>
+  </div>
+  <div class="posts">
+    <%= render @feed_items %>
+  </div>
+</div>
