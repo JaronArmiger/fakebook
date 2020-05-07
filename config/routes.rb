@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments, only: [:create, :destroy]
   resources :likes, only: [:create, :destroy]
-  resources :friend_requests, only: [:index, :create]
-  get '/home', to: 'static_pages#home'
+  resources :friend_requests, only: [:index, :create, :destroy]
+  
+  get    '/home',        to: 'static_pages#home'
+  post   '/friendships', to: 'friendships#create'
+  delete '/friendships', to: 'friendships#destroy'
   
   root 'static_pages#home'
   

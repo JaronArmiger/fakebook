@@ -1,1 +1,4 @@
-<p>delete</p>
+<%= form_with(model: FriendRequest.find(request_id), local: true, method: :delete) do |f| %>
+  <%# hidden_field_tag :request_id, request_id %>
+  <%= f.submit "effacer" %>
+<% end %>

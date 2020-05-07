@@ -6,7 +6,7 @@
         <%= link_to "Mon profil", user_path(current_user) %>
         <%= link_to "l'accueil", home_path %>
         <%= link_to "tous le monde", users_path %>
-        <%= link_to "demande d'ami", friend_requests_path %>
+        <%= link_to "demande d'ami(#{current_user.received_requests_count})", friend_requests_path %>
       <% else %>
         <%= link_to "S'incrire", new_user_registration_path %> or <%= link_to "Se connecter", new_user_session_path %>
       <% end %>

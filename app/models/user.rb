@@ -36,4 +36,8 @@ class User < ApplicationRecord
     end
     true
   end
+
+  def received_requests_count
+    FriendRequest.where(to_user_id: id).count
+  end
 end

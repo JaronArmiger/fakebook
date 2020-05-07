@@ -1,6 +1,7 @@
 <div class="friend_request">
 	<% user = friend_request.from_user %>
 	<%= link_to user.name, user_path(user) %>
-	<%= render 'friend_requests/accept_form' %>
-	<%= render 'friend_requests/delete_form' %>
+	<%= link_to 'accepter', friendships_path(user_id: user.id), method: 'post' %>
+	<%# render partial: 'friend_requests/accept_form', locals: { request_id: friend_request.id } %>
+	<%= render partial: 'friend_requests/delete_form', locals: { request_id: friend_request.id } %>
 </div>

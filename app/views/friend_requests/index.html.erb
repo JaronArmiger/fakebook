@@ -1,2 +1,6 @@
 <h1>Vos Demandes D'Ami</h1>
-<%= render @friend_requests %>
+<% if @friend_requests.empty? %>
+  aucune demande maintenant :/
+<% else %>
+  <%= render @friend_requests %>
+<% end %>

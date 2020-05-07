@@ -1,1 +1,4 @@
-<p>accept</p>
+<%= form_with(url: friendships_path, local: true) do |f| %>
+
+  <%= f.submit "accepter" %>
+<% end %>
