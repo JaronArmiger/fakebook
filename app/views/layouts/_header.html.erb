@@ -5,6 +5,7 @@
         <%= link_to "Deconnexion", destroy_user_session_path, method: :delete %>
         <%= link_to "Mon profil", user_path(current_user) %>
         <%= link_to "l'accueil", home_path %>
+        <%= link_to "tous le monde", users_path %>
       <% else %>
         <%= link_to "S'incrire", new_user_registration_path %> or <%= link_to "Se connecter", new_user_session_path %>
       <% end %>

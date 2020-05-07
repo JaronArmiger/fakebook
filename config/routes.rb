@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'friend_requests/create'
   devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :users
   resources :posts

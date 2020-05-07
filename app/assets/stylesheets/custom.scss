@@ -2,13 +2,24 @@
 @import "bootstrap";
 
 .friends {
-	float: left;
+	float: right;
 	margin-left: 40px;
 }
 
 .posts {
 	float: left;
+}
 
+.user {
+	padding: 10px;
+	margin: 5px;
+	margin-left: 40px;
+	border: solid #BBB;
+	border-width: 0.5px;
+	width: 200px;
+	&:hover {
+		background-color: #AFB;
+	}
 }
 
 .banner {
@@ -19,3 +30,4 @@
 .post_form {
 	margin-bottom: 40px;
 }
+

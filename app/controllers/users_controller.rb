@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :require_log_in
     
 	def index
+		@users = User.all
 	end
 
 	def show
