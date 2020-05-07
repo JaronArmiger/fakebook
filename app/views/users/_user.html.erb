@@ -1,15 +1,18 @@
 
   <div class="user">
   <%= link_to user.name, user_path(user) %>
-    <% if user != current_user %>
-	  <% if current_user.friends.include?(user) %>
-	  	
-	  <% elsif current_user.friend_requests.include?(user) %>
-	    friend request sent!
-	  <% else %>
-	    <%= link_to "friend +1", '#' %>
-	  <% end %>
-    <% end %>
+    <span>
+	    <% if user != current_user %>
+		  <% if current_user.friends.include?(user) %>
+
+		  <% elsif current_user.request_sent?(user.id) %>
+		    friend request sent!
+		  <% else %>
+		    <%= render partial: 'friend_requests/friend_request_form',
+		    	locals: { to_user_id: user.id } %>
+		  <% end %>
+	    <% end %>
+	</span>
   </div>
 
 

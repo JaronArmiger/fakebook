@@ -1,0 +1,6 @@
+<div class="friend_request">
+	<% user = friend_request.from_user %>
+	<%= link_to user.name, user_path(user) %>
+	<%= render 'friend_requests/accept_form' %>
+	<%= render 'friend_requests/delete_form' %>
+</div>

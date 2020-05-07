@@ -28,4 +28,12 @@ class User < ApplicationRecord
   def unlike(post)
     self.likes.find_by(liked_post_id: post.id).destroy
   end
+
+  def request_sent?(to_user_id)
+    if FriendRequest.where("from_user_id = ? AND to_user_id = ?",
+                id, to_user_id ).empty?
+      return false
+    end
+    true
+  end
 end
