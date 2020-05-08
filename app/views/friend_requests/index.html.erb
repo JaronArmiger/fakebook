@@ -2,5 +2,5 @@
 <% if @friend_requests.empty? %>
   aucune demande maintenant :/
 <% else %>
-  <%= render @friend_requests %>
+  <%= render @friend_requests, locals: {besoin: "tais-toi"} %>
 <% end %>

@@ -17,8 +17,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def feed
-    user_ids = friend_ids << id
-    Post.where("user_id IN (#{user_ids.join(', ')})").order(created_at: :desc)
+    my_id = id
+    id_list = friend_ids
+    id_list << my_id
+    Post.where("user_id IN (#{id_list.join(', ')})").order(created_at: :desc)
   end
 
   def like(post)
@@ -39,5 +41,10 @@ class User < ApplicationRecord
 
   def received_requests_count
     FriendRequest.where(to_user_id: id).count
+  end
+
+  def friend(other_user)
+    self.friends << other_user
+    other_user.friends << self
   end
 end

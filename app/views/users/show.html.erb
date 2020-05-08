@@ -6,12 +6,21 @@
 	<%= link_to "edite profil", edit_user_registration_path %>
 </div>
 <div class="container">
-	<div class="posts">
-		<%= render @feed_items %>
-	</div>
 
 	<div class="friends">
-		<h3>Mes Amis</h3>
+		<% if @user == current_user %>
+		  <h3>Mes Amis</h3>
+		<% else %>
+		  <h3>Ses Amis</h3>
+		<% end %>
 		<%= render @user.friends %>
 	</div>
+
+	<div class="posts">
+		<%= render @feed_items %>
+		<br>
+	</div>
+
+	
 </div>
+

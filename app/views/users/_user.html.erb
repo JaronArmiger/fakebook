@@ -6,24 +6,13 @@
 		  <% if current_user.friends.include?(user) %>
 
 		  <% elsif current_user.request_sent?(user.id) %>
-		    friend request sent!
+		    demande d'ami envoyee
 		  <% else %>
 		    <%= render partial: 'friend_requests/friend_request_form',
 		    	locals: { to_user_id: user.id } %>
 		  <% end %>
+		<% else %>
+		  (c'est moi)
 	    <% end %>
 	</span>
   </div>
-
-
-<!--
-<p>
-	case 1: user already friends with current user
-	<br>
-	case 2: friend request sent from current user
-	<br>
-	case 3: user not friends with current user
-	<br>
-			and current user has not sent friend request
-</p>
--->

@@ -6,7 +6,7 @@ class FriendshipsController < ApplicationController
 		second_id = params[:user_id]
 
 		user = User.find(second_id)
-		current_user.friends << user
+		current_user.friend(user)
 
 		FriendRequest.cleanup(first_id, second_id)
 

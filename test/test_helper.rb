@@ -29,4 +29,8 @@ class ActionDispatch::IntegrationTest
 									password: password
 		}}
 	end
+
+	def log_out
+		delete destroy_user_session_path
+	end
 end
