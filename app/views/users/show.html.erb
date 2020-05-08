@@ -1,9 +1,15 @@
 <div class="banner">
+	<div class="profile_picture">
+		<%= image_tag @user.display_profile_picture, width: 200 %>
+	</div>
+	<br>
 	<%= @user.name %>
 	<br>
 	<%= @user.email %>
 	<br>
-	<%= link_to "edite profil", edit_user_registration_path %>
+	<% if @user == current_user %>
+	  <%= link_to "edite profil", edit_user_registration_path %>
+	<% end %>
 </div>
 <div class="container">
 
@@ -13,11 +19,23 @@
 		<% else %>
 		  <h3>Ses Amis</h3>
 		<% end %>
-		<%= render @user.friends %>
+		<% if @user.friends.size > 1 %>
+		  <%# @user.friends.size %>
+		  <%# @user.friends.inspect %>
+		  <%= render @user.friends %>
+		<% else %>
+		  <p>pas encore d'amis :/</p>
+		<% end %>
+		<%# @user.friends.empty? %>
 	</div>
 
 	<div class="posts">
-		<%= render @feed_items %>
+		<h3>Des Postes</h3>
+		  <% if @feed_items.any? %>
+		    <%= render @feed_items %>
+		  <% else %>
+		    pas encore des postes :/
+		  <% end %>
 		<br>
 	</div>
 

@@ -5,8 +5,11 @@ ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'image_processing',            '1.9.3'
+gem 'mini_magick',                 '4.9.5'
+gem 'active_storage_validations',  '0.8.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1' 
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server

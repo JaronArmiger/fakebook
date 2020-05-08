@@ -8,7 +8,7 @@
         <%= link_to "tous le monde", users_path %>
         <%= link_to "demande d'ami(#{current_user.received_requests_count})", friend_requests_path %>
       <% else %>
-        <%= link_to "S'incrire", new_user_registration_path %> or <%= link_to "Se connecter", new_user_session_path %>
+        <%= link_to "S'inscrire", new_user_registration_path %> or <%= link_to "Se connecter", new_user_session_path %>
       <% end %>
     </div>
 </header>

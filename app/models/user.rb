@@ -18,6 +18,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :profile_picture, content_type: { in: %w[image/jpeg image/gif image/png],
+                                              message: "must be valid image format" },
+                              size: { less_than: 5.megabytes,
+                                      message: "should be less than 5 MB" }
+
   def feed
     my_id = id
     id_list = friend_ids
@@ -48,5 +53,13 @@ class User < ApplicationRecord
   def friend(other_user)
     self.friends << other_user
     other_user.friends << self
+  end
+
+  def display_profile_picture
+    if profile_picture.attached?
+      profile_picture.variant(resize_to_limit: [200,200])
+    else
+      "default.jpg"
+    end
   end
 end
