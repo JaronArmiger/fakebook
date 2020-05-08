@@ -10,7 +10,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   	log_in_as users(:mathias)
   	get home_path
   	assert_response :success
-  	assert_select "form", count: 1
+  	assert_select "form[class=?]", "post_form"
   	assert_select "li"
   end
 end
