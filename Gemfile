@@ -10,6 +10,7 @@ gem 'mini_magick',                 '4.9.5'
 gem 'active_storage_validations',  '0.8.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'omniauth-facebook', '~> 6.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
