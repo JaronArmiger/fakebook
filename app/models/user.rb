@@ -14,9 +14,10 @@ class User < ApplicationRecord
   has_many :received_requests, through: :friend_requests, source: :to_user
   
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, 
+         :omniauthable, omniauth_providers: %i[facebook]
 
   validates :profile_picture, content_type: { in: %w[image/jpeg image/gif image/png],
                                               message: "must be valid image format" },
@@ -62,4 +63,32 @@ class User < ApplicationRecord
       "default.jpg"
     end
   end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+      #user.profile_picture = auth.info.image
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
