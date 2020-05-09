@@ -2,14 +2,16 @@
 	<div class="profile_picture">
 		<%= image_tag @user.display_profile_picture, width: 200 %>
 	</div>
-	<br>
-	<%= @user.name %>
-	<br>
-	<%= @user.email %>
-	<br>
-	<% if @user == current_user %>
-	  <%= link_to "edite profil", edit_user_registration_path %>
-	<% end %>
+		<div class="user_info">
+		<br>
+		<%= @user.name %>
+		<br>
+		<%= @user.email %>
+		<br>
+		<% if @user == current_user %>
+		  <%= link_to "edite profil", edit_user_registration_path %>
+		<% end %>
+	</div>
 </div>
 <div class="container">
 
