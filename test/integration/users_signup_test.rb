@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProfilePicturesTest < ActionDispatch::IntegrationTest
+class UsersSignupTest < ActionDispatch::IntegrationTest
   
   def setup
   	@pic = fixture_file_upload('test/fixtures/juliette.jpg')
@@ -11,6 +11,7 @@ class ProfilePicturesTest < ActionDispatch::IntegrationTest
 			 password_confirmation: "password",
 			 profile_picture: @pic
 		} }
+    ActionMailer::Base.deliveries.clear
   end
 
 
