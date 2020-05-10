@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one_attached :profile_picture
 
   has_many :posts
+  has_many :photo_posts
   has_many :comments
   has_many :likes, foreign_key: :liker_id
   has_many :liked_posts, through: :likes
@@ -65,6 +66,7 @@ class User < ApplicationRecord
       "default.jpg"
     end
   end
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

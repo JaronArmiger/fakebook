@@ -1,9 +1,11 @@
 <li>
 	<span>
+		<%= image_tag post.user.display_profile_picture, width: 50 %>
 		<%= link_to post.user.name, post.user %>
 	</span>
 	<br>
 	<span><%= post.content %></span>
+	<span><%= image_tag post.display_image if post.image.attached? %></span>
 	<span>
 		Posted <%= time_ago_in_words(post.created_at) %> ago
 	</span>
