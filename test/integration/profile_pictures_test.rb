@@ -20,5 +20,6 @@ class ProfilePicturesTest < ActionDispatch::IntegrationTest
   	end
   	@user = User.find_by(name: "Juliette Binoche")
   	assert @user.profile_picture.attached?
+    assert_equal 1, ActionMailer::Base.deliveries.size
   end
 end

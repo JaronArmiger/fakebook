@@ -76,7 +76,7 @@ class User < ApplicationRecord
   end
 
   def send_sign_up_email
-    UserMailer.sign_up(self).deliver_now!
+    UserMailer.sign_up_email(self).deliver_now!
   end
 end
 
