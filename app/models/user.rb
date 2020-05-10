@@ -24,6 +24,8 @@ class User < ApplicationRecord
                               size: { less_than: 5.megabytes,
                                       message: "should be less than 5 MB" }
 
+  after_create :send_sign_up_email
+
   def feed
     my_id = id
     id_list = friend_ids
@@ -71,6 +73,10 @@ class User < ApplicationRecord
       user.name = auth.info.name
       #user.profile_picture = auth.info.image
     end
+  end
+
+  def send_sign_up_email
+    UserMailer.sign_up(self).deliver_now!
   end
 end
 
